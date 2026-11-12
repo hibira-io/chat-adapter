@@ -1,6 +1,6 @@
 {
   "name": "@hibira-io/chat-adapter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hibira Live Chat adapter for Chat SDK: answer website chat, LINE and email conversations with the same bot you run on Slack, Teams and Discord, and hand them to your human team",
   "keywords": [
     "chat-sdk",

@@ -29,11 +29,18 @@ export function createHibiraAdapter(config: HibiraAdapterConfig = {}): HibiraAda
       "A webhook signing secret is required. Pass webhookSecret or set HIBIRA_LIVECHAT_WEBHOOK_SECRET.",
     );
   }
+  const agentId = config.agentId ?? env("HIBIRA_LIVECHAT_AGENT_ID");
+  if (config.dispatchAgentMessages && !agentId) {
+    throw new ValidationError(
+      ADAPTER_NAME,
+      "dispatchAgentMessages needs agentId (or HIBIRA_LIVECHAT_AGENT_ID), so that the bot can tell its own replies from your agents' messages.",
+    );
+  }
   return new HibiraAdapter({
     ...config,
     apiKey,
     webhookSecret,
-    agentId: config.agentId ?? env("HIBIRA_LIVECHAT_AGENT_ID"),
+    agentId,
     apiUrl: config.apiUrl ?? env("HIBIRA_LIVECHAT_API_URL"),
   });
 }

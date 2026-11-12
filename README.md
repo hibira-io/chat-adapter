@@ -66,7 +66,7 @@ Each Live Chat conversation is one thread with the ID `hibira:<conversation id>`
 
 ### Answer with AI
 
-`thread.post()` takes an AI SDK text stream. Live Chat shows a message once it is complete, so the adapter shows the visitor that the bot is typing while the answer is written, then sends it as one message.
+`thread.post()` takes an AI SDK text stream. Live Chat shows a message once it is complete, so the adapter shows the visitor that the bot is typing while the answer is written, then sends it as one message. Live Chat shows an agent typing only once that agent has written in the conversation, so the visitor sees the indicator from the bot's second answer on.
 
 ```ts
 import { streamText } from "ai";
@@ -116,7 +116,7 @@ createHibiraAdapter({
 | `webhookSecret` | `HIBIRA_LIVECHAT_WEBHOOK_SECRET` | Signing secret, or a function that returns it |
 | `agentId` | `HIBIRA_LIVECHAT_AGENT_ID` | The agent the bot answers as |
 | `apiUrl` | `https://chat.hibira.io/v1` | REST API base URL |
-| `dispatchAgentMessages` | `false` | Also send your human agents' messages to your handlers. Set `agentId` with it, so that the bot always recognises its own replies. |
+| `dispatchAgentMessages` | `false` | Also send your human agents' messages to your handlers. Needs `agentId`, so that the bot always recognises its own replies; `createHibiraAdapter()` throws without it. |
 | `onEvent` | none | Called with every verified webhook event, such as `conversation.assigned`, `conversation.closed` or `conversation.rated` |
 | `signatureToleranceSeconds` | `300` | How old a signature may be |
 | `fetch` | global `fetch` | For tests and proxies |
@@ -139,11 +139,11 @@ createHibiraAdapter({
 | --- | --- |
 | Post message | Yes, as the bot's agent |
 | Streaming | Collected, then sent as one message, with a typing indicator |
-| Typing indicator | Yes |
+| Typing indicator | Partly: shown once the bot has written in the conversation |
 | Direct messages | Yes, every conversation |
 | Fetch messages, single message, thread info | Yes (latest 100 messages) |
 | Cards, tables | Sent as plain text |
-| Edit and delete messages, reactions, file uploads | No |
+| Edit and delete messages, reactions, file uploads | No. Files in a reply are not sent: the adapter logs a warning and posts the text |
 | Buttons, modals, slash commands | No |
 
 Messages from the visitor reach your handlers. Internal notes, the bot's own replies, the workspace AI's answers and system messages don't. Human agents' messages don't either, unless you set `dispatchAgentMessages`.

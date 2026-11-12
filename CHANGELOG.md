@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- `createHibiraAdapter()` throws when `dispatchAgentMessages` is set without `agentId` (or `HIBIRA_LIVECHAT_AGENT_ID`). Without it, a freshly started adapter couldn't tell its own replies from your agents' messages and could answer itself.
+- README: the typing indicator shows once the bot has written in the conversation; files in a reply are not sent.
+
 ## 0.1.0
 
 First release.

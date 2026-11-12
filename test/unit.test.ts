@@ -31,6 +31,12 @@ describe("createHibiraAdapter", () => {
     expect(() => createHibiraAdapter({ apiKey: KEY })).toThrow(/webhook signing secret/);
   });
 
+  it("needs agentId to dispatch agents' messages", () => {
+    delete process.env.HIBIRA_LIVECHAT_AGENT_ID;
+    expect(() => createHibiraAdapter({ apiKey: KEY, webhookSecret: SECRET, dispatchAgentMessages: true })).toThrow(/agentId/);
+    expect(createHibiraAdapter({ apiKey: KEY, webhookSecret: SECRET, dispatchAgentMessages: true, agentId: "ag_bot" }).botUserId).toBe("ag_bot");
+  });
+
   it("accepts credential functions and resolves them on every call", async () => {
     let n = 0;
     const api = fakeApi();

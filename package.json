@@ -1,0 +1,72 @@
+{
+  "name": "@hibira-io/chat-adapter",
+  "version": "0.1.0",
+  "description": "Hibira Live Chat adapter for Chat SDK: answer website chat, LINE and email conversations with the same bot you run on Slack, Teams and Discord, and hand them to your human team",
+  "keywords": [
+    "chat-sdk",
+    "chat-adapter",
+    "live-chat",
+    "customer-support",
+    "support-bot",
+    "website-chat",
+    "chatbot",
+    "human-handoff",
+    "ai-agent",
+    "vercel",
+    "hibira"
+  ],
+  "homepage": "https://chat.hibira.io/docs",
+  "bugs": {
+    "url": "https://github.com/hibira-io/chat-adapter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hibira-io/chat-adapter.git"
+  },
+  "license": "MIT",
+  "author": "Hibira (https://hibira.io)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "chat": "^4.0.0"
+  },
+  "dependencies": {
+    "@chat-adapter/shared": "^4.44.0"
+  },
+  "devDependencies": {
+    "@chat-adapter/state-memory": "^4.44.0",
+    "@types/node": "^22.0.0",
+    "chat": "^4.44.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

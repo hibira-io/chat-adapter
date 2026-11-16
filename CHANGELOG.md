@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- The missing-key error and the README link to Settings › API & webhooks at hibira.io/portal/live-chat/developers, where Live Chat's settings now live. The REST API stays at chat.hibira.io/v1.
+
 ## 0.1.1
 
 - `createHibiraAdapter()` throws when `dispatchAgentMessages` is set without `agentId` (or `HIBIRA_LIVECHAT_AGENT_ID`). Without it, a freshly started adapter couldn't tell its own replies from your agents' messages and could answer itself.

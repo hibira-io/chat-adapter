@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2
 
 - The missing-key error and the README link to Settings › API & webhooks at hibira.io/portal/live-chat/developers, where Live Chat's settings now live. The REST API stays at chat.hibira.io/v1.
 

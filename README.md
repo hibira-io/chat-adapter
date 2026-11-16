@@ -15,7 +15,7 @@ npm install chat @hibira-io/chat-adapter @chat-adapter/state-redis
 
 ## Set up Live Chat
 
-1. In [chat.hibira.io](https://chat.hibira.io), open **Settings › API & webhooks**.
+1. In Hibira Live Chat, open [**Settings › API & webhooks**](https://hibira.io/portal/live-chat/developers).
 2. Create an API key with the **Read and write** scope. Copy it into `HIBIRA_LIVECHAT_API_KEY`.
 3. Add a webhook endpoint with your bot's URL, for example `https://your-app.com/api/webhooks/hibira`, and pick at least the **message.created** event. Copy its signing secret into `HIBIRA_LIVECHAT_WEBHOOK_SECRET`.
 4. Optional: invite an agent for the bot, such as "Support bot", and put its ID (from `GET /v1/agents`) in `HIBIRA_LIVECHAT_AGENT_ID`. Replies then show that name. Without it, the bot replies as the agent who created the key.
@@ -158,7 +158,7 @@ Messages from the visitor reach your handlers. Internal notes, the bot's own rep
 
 `@hibira-io/chat-adapter` 是 Hibira Live Chat 的 Chat SDK（Vercel）適配器：同一個 bot 除了 Slack、Teams、Discord，也能回答網站聊天、LINE 與 Email 的訪客。
 
-- 在 chat.hibira.io「設定 › API 與 Webhook」建立讀寫 API 金鑰（`HIBIRA_LIVECHAT_API_KEY`），並新增指向 bot 網址、至少勾選 `message.created` 的 Webhook 端點（簽章密鑰放 `HIBIRA_LIVECHAT_WEBHOOK_SECRET`）。需要 Team 或 Business 方案。
+- 在 Hibira Live Chat 的「[設定 › API 與 Webhook](https://hibira.io/portal/live-chat/developers)」建立讀寫 API 金鑰（`HIBIRA_LIVECHAT_API_KEY`），並新增指向 bot 網址、至少勾選 `message.created` 的 Webhook 端點（簽章密鑰放 `HIBIRA_LIVECHAT_WEBHOOK_SECRET`）。需要 Team 或 Business 方案。
 - 每個對話是一個 Chat SDK 私訊討論串（`hibira:<對話 ID>`），只有訪客訊息會送進你的 handler；內部備註、bot 自己的回覆、工作區 AI 與系統訊息都不會。
 - Live Chat 顯示純文字：Markdown、卡片與表格會轉成易讀文字，超過 4,000 字自動拆成多則；AI 串流會先顯示「正在輸入」，寫完再一次送出。
 - `handoff()` 把對話交給真人或團隊佇列，`onEvent` 可得知客服接手，`postNote()` 寫內部備註，`closeConversation()` 結束對話。

@@ -20,7 +20,7 @@ export function createHibiraAdapter(config: HibiraAdapterConfig = {}): HibiraAda
   if (!apiKey) {
     throw new ValidationError(
       ADAPTER_NAME,
-      "A Live Chat API key is required. Pass apiKey or set HIBIRA_LIVECHAT_API_KEY (Settings › API & webhooks on chat.hibira.io).",
+      "A Live Chat API key is required. Pass apiKey or set HIBIRA_LIVECHAT_API_KEY (Settings › API & webhooks: https://hibira.io/portal/live-chat/developers).",
     );
   }
   if (!webhookSecret) {

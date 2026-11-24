@@ -26,7 +26,7 @@ npm install chat @hibira-io/chat-adapter @chat-adapter/state-redis
 | `HIBIRA_LIVECHAT_API_KEY` | yes | Workspace API key, `lck_...`, with the write scope |
 | `HIBIRA_LIVECHAT_WEBHOOK_SECRET` | yes | The webhook endpoint's signing secret, `lcwh_...` |
 | `HIBIRA_LIVECHAT_AGENT_ID` | no | The agent the bot answers as |
-| `HIBIRA_LIVECHAT_API_URL` | no | Defaults to `https://chat.hibira.io/v1` |
+| `HIBIRA_LIVECHAT_API_URL` | no | Defaults to `https://api.hibira.io/live-chat/v1` |
 
 ## Quick start (Next.js)
 
@@ -115,7 +115,7 @@ createHibiraAdapter({
 | `apiKey` | `HIBIRA_LIVECHAT_API_KEY` | API key, or a function that returns it. Functions are called on every request, so rotated keys work. |
 | `webhookSecret` | `HIBIRA_LIVECHAT_WEBHOOK_SECRET` | Signing secret, or a function that returns it |
 | `agentId` | `HIBIRA_LIVECHAT_AGENT_ID` | The agent the bot answers as |
-| `apiUrl` | `https://chat.hibira.io/v1` | REST API base URL |
+| `apiUrl` | `https://api.hibira.io/live-chat/v1` | REST API base URL |
 | `dispatchAgentMessages` | `false` | Also send your human agents' messages to your handlers. Needs `agentId`, so that the bot always recognises its own replies; `createHibiraAdapter()` throws without it. |
 | `onEvent` | none | Called with every verified webhook event, such as `conversation.assigned`, `conversation.closed` or `conversation.rated` |
 | `signatureToleranceSeconds` | `300` | How old a signature may be |

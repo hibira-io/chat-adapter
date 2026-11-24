@@ -17,7 +17,7 @@ export function fakeApi(routes: Record<string, (body: unknown) => { status?: num
   let seq = 0;
   const fetchImpl: typeof fetch = async (input, init) => {
     const url = new URL(String(input));
-    const path = url.pathname.replace(/^\/v1/, "");
+    const path = url.pathname.replace(/^\/live-chat\/v1/, "");
     const body = init?.body ? JSON.parse(String(init.body)) : undefined;
     const headers = new Headers(init?.headers);
     calls.push({ method: init?.method ?? "GET", path, auth: headers.get("authorization"), body });

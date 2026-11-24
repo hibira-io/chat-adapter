@@ -22,7 +22,7 @@ export interface HibiraAdapterConfig {
    * `HIBIRA_LIVECHAT_AGENT_ID`, else the agent who created the API key.
    */
   agentId?: string;
-  /** REST API base URL. Defaults to `HIBIRA_LIVECHAT_API_URL`, else `https://chat.hibira.io/v1`. */
+  /** REST API base URL. Defaults to `HIBIRA_LIVECHAT_API_URL`, else `https://api.hibira.io/live-chat/v1`. */
   apiUrl?: string;
   /** The bot's display name inside Chat SDK. Defaults to `"hibira-bot"`. */
   userName?: string;

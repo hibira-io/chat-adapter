@@ -10,7 +10,7 @@ import {
 import type { Credential } from "./types";
 
 export const ADAPTER_NAME = "hibira";
-export const DEFAULT_API_URL = "https://chat.hibira.io/v1";
+export const DEFAULT_API_URL = "https://api.hibira.io/live-chat/v1";
 
 /** Resolves a credential on every call, so rotated keys are picked up. */
 export async function resolveCredential(c: Credential): Promise<string> {

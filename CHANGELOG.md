@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- The REST API's default address is now https://api.hibira.io/live-chat/v1. The old https://chat.hibira.io/v1 keeps working, so a set `apiUrl` or `HIBIRA_LIVECHAT_API_URL` needs no change.
+
 ## 0.1.2
 
 - The missing-key error and the README link to Settings › API & webhooks at hibira.io/portal/live-chat/developers, where Live Chat's settings now live. The REST API stays at chat.hibira.io/v1.
